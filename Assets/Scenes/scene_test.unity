@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -187,13 +187,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256816662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.43, z: -10}
+  m_LocalRotation: {x: 0.17853738, y: -0, z: -0, w: 0.98393315}
+  m_LocalPosition: {x: 0, y: 4.26, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20.569, y: 0, z: 0}
 --- !u!1 &458930778
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +206,8 @@ GameObject:
   - component: {fileID: 458930780}
   - component: {fileID: 458930779}
   - component: {fileID: 458930783}
+  - component: {fileID: 458930785}
+  - component: {fileID: 458930784}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -290,11 +292,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7dd9decfa28424e80d42207c607388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  playerMoveUp: 
-  playerMoveLeft: 
-  playerMoveDown: 
-  playerMoveRight: 
+  moveSpeed: 0.5
+--- !u!65 &458930784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458930778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &458930785
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458930778}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &586872770
 GameObject:
   m_ObjectHideFlags: 0
