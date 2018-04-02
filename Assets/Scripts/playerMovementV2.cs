@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraMouseContoller : MonoBehaviour {
+public class playerMovementV2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
