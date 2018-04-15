@@ -21,7 +21,7 @@ public class playerMovementV2 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		movementInput = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
-		rb.AddRelativeForce (movementInput * moveSpeed, ForceMode.Acceleration);
+		rb.AddRelativeForce (movementInput * moveSpeed *Time.deltaTime, ForceMode.Acceleration);
 
 		mainCamRotY = mainCam.transform.eulerAngles.y;
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, mainCamRotY, transform.eulerAngles.z);
