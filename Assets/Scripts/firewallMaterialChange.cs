@@ -35,8 +35,7 @@ public class firewallMaterialChange : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (disabled == true) {//Sets firewall black if disabled
+		if (disabled == true) {//Sets firewall black if disabled\
 			changeMaterial (firewallInnerBlocks, firewallBlack);
 			changeMaterial (firewallOuterBlocks, firewallBlack);
 		} else if (block == false) {//Sets firewall Blue if not blocked
@@ -53,5 +52,13 @@ public class firewallMaterialChange : MonoBehaviour {
 			firewallRenderer = firewall.GetComponent<Renderer>();
 			firewallRenderer.material = firewallMaterial;
 		}
+	}
+
+	public void blockFirewall(bool input){
+		block = input;
+	}
+
+	public void disableFirewall(bool input){
+		disabled = input;
 	}
 }

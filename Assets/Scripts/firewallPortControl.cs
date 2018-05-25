@@ -2,7 +2,7 @@
     Justin Lou
     4/05/18
     Firewall Port Control
-	Checks of the player can pass through the firewall
+	Checks if the player can pass through the firewall
 */
 
 using System.Collections;
@@ -11,30 +11,34 @@ using UnityEngine;
 
 public class firewallPortControl : MonoBehaviour {
 
-	bool block = false;
-	bool disabled = false;
+	public List<int> openPorts;
+	public List<int> playerUnlockedPorts;
 
-	List<int> openPorts;
-	List<int> playerUnlockedPorts;
+	public bool solid;
+
+	public Collider firewallCollider;
+
+	public firewallMaterialChange firewallMaterialChange;
 
 	void Start () {
-		block = checkPorts (openPorts, playerUnlockedPorts);
+		//block = checkPorts (openPorts, playerUnlockedPorts);
 	}
 
 	void Update () {
-		
+		firewallSolid (solid);
 	}
 
 	//Checks ports, returns 1 if player can access port
 	bool checkPorts (List<int> openPorts, List<int> playerUnlockedPorts){
-		
-		List<int> matchedPorts;
+
+		//List<int> matchedPorts;
 		bool firewallOpen = false;
 
 		foreach(int openPort in openPorts){
 			foreach(int unlockedPort in openPorts){
 				if (openPort == unlockedPort) {
-					//firewallOpen = true;
+					//matchedPorts.Add (openPort);
+					firewallOpen = true;
 				}
 			}
 		}
@@ -42,8 +46,9 @@ public class firewallPortControl : MonoBehaviour {
 		return (firewallOpen);
 	}
 
-	//
-	void firewallAccessControl (){
-
+	//Changes the firewall to be solid or not solid
+	void firewallSolid (bool solid){
+		firewallCollider.enabled = solid;
+		firewallMaterialChange.blockFirewall (solid);
 	}
 }
