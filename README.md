@@ -1,6 +1,6 @@
  # Packet-Loss
 
-#### Primary Documentation
+#### Primary Documentation (Not Very Relevant for HS1511 as it doesn't prove anything)
  
  GDD: https://docs.google.com/document/d/1bXSYwfRE6TK2Z4MA4PLHfXfh6gfsr_4rYgkhttLn34A/edit?usp=sharing
  
