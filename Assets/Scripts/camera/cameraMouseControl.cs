@@ -15,7 +15,7 @@ public class cameraMouseControl : MonoBehaviour {
 	//public Transform camTransform; //Camera's transform
 
 	//private Camera cam; //Target camera (self)
-	private float distanceFromTarget = 8; 
+	public float distanceFromTarget = 12; 
 	private float mouseX = 0f;
 	private float mouseY = 0f;
 	public float sensitivity = 3f;
@@ -33,7 +33,11 @@ public class cameraMouseControl : MonoBehaviour {
 			mouseY = 50f;
 		}
 
-		//distanceFromTarget = mouseY / 50f * 8f;//Zoom in effect as the camera pans down (WIP)
+		distanceFromTarget = mouseY / 50f * 4f + 6f;//Zoom in effect as the camera pans down (WIP)
+
+		if (distanceFromTarget >= 10f) {
+			distanceFromTarget = 10f;
+		}
 	}
 
 	void LateUpdate () {

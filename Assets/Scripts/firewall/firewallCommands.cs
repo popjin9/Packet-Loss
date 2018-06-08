@@ -46,6 +46,11 @@ public class firewallCommands : MonoBehaviour {
 				firewallPortControl.nmap ();
 			}
 
+			//SSH Connect
+			if (Input.GetKeyDown (KeyCode.C)) {
+				firewallPortControl.s_client ();
+			}
+
 
 		}
 	}

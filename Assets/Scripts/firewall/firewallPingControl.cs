@@ -15,6 +15,8 @@ public class firewallPingControl : MonoBehaviour {
 
 	public Text pingInfo;
 	public Renderer firewallRenderer;
+
+	public string firewallDescription;
 	//private bool prompted;
 
 
@@ -58,7 +60,7 @@ public class firewallPingControl : MonoBehaviour {
 	}
 
 	IEnumerator pingResponseCoroutine(){
-		string prompt = "Level 1 Firewall\n ID: 0xB23cdjD \n\n Options: \n Portscan ('n')";
+		string prompt =firewallDescription + "\n\nOptions: \nnmap ('n')\ns_client ('c')";
 		pingInfo.text = "";
 
 		foreach (char character in prompt) {

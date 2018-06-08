@@ -12,29 +12,29 @@ using UnityEngine.UI;
 
 public class firewallPortControl : MonoBehaviour {
 
-	private float charSpeed = 0.05f;
+	public GameObject player;
+	public List<int> playerUnlockedPorts;
 
 	public List<int> openPorts;
-	public List<int> playerUnlockedPorts;
 	public List<int> matchedPorts;
 
 	public bool solid;
-
 	public Collider firewallCollider;
 
 	public firewallMaterialChange firewallMaterialChange;
 
+	//Text
 	public Text pingInfo;
 	public Renderer firewallRenderer;
+	private float charSpeed = 0.05f;
 
 	void Start () {
+		playerUnlockedPorts = player.GetComponent<playerPortControl> ().playerUnlockedPorts;
 		firewallSolid (true);
-		//block = checkPorts (openPorts, playerUnlockedPorts);
 	}
 
 	void Update () {
-		//solid = checkPorts (openPorts, playerUnlockedPorts);
-		//firewallSolid (solid);
+		
 	}
 
 	public void nmap(){
@@ -42,16 +42,41 @@ public class firewallPortControl : MonoBehaviour {
 		prompt = "nmap: Network Scan Report\nPORT\tSTATE\t\tCONNECT\n";
 
 		foreach (int openPort in openPorts) {
-			prompt += (openPort + "\t\topen\t\tYes\n");
+			prompt += (openPort + "\topen\tUnknown\n");
 		}
 		StopAllCoroutines ();
 		StartCoroutine ("nmapPrint", prompt);
-
-		solid = checkPorts (openPorts, playerUnlockedPorts);
-		firewallSolid (solid);
 	}
 
 	IEnumerator nmapPrint(string prompt){
+		pingInfo.text = "";
+
+		foreach (char character in prompt) {
+			pingInfo.text += character;
+			yield return new WaitForSeconds (charSpeed);
+		}
+	}
+
+	public void s_client(){
+		playerUnlockedPorts = player.GetComponent<playerPortControl> ().playerUnlockedPorts;
+		solid = checkPorts (openPorts, playerUnlockedPorts);
+		firewallSolid (solid);
+
+		if (solid = false) {
+			string prompt = "SSL Connection Successful!";
+
+			StopAllCoroutines ();
+			StartCoroutine ("s_clientPrint", prompt);
+		} else {
+			string prompt = "Error 503: Unable to connect";
+
+			StopAllCoroutines ();
+			StartCoroutine ("s_clientPrint", prompt);
+		}
+
+	}
+
+	IEnumerator s_clientPrint(string prompt){
 		pingInfo.text = "";
 
 		foreach (char character in prompt) {
