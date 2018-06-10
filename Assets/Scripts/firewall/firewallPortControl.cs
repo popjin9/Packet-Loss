@@ -62,7 +62,7 @@ public class firewallPortControl : MonoBehaviour {
 		solid = checkPorts (openPorts, playerUnlockedPorts);
 		firewallSolid (solid);
 
-		if (solid = false) {
+		if (solid == false) {
 			string prompt = "SSL Connection Successful!";
 
 			StopAllCoroutines ();

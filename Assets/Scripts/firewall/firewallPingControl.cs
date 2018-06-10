@@ -60,7 +60,7 @@ public class firewallPingControl : MonoBehaviour {
 	}
 
 	IEnumerator pingResponseCoroutine(){
-		string prompt =firewallDescription + "\n\nOptions: \nnmap ('n')\ns_client ('c')";
+		string prompt = firewallDescription + "\n\nOptions: \nnmap ('n')\ns_client ('c')";
 		pingInfo.text = "";
 
 		foreach (char character in prompt) {
