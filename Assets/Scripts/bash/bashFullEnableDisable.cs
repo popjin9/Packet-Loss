@@ -1,16 +1,8 @@
-﻿/*
-	Justin Lou
-	9/06/18
-	Bash Enable Disable
-	Script to check keys to enable and disabled the bash as needed
-*/
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class bashEnableDisable : MonoBehaviour {
+public class bashFullEnableDisable : MonoBehaviour {
 
 	public GameObject bash;
 	public bool enable;
@@ -19,10 +11,10 @@ public class bashEnableDisable : MonoBehaviour {
 	void Start () {
 		enable = false;
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.BackQuote) && !Input.GetKey (KeyCode.LeftShift)) {
+		if (Input.GetKeyDown (KeyCode.BackQuote) && Input.GetKey (KeyCode.LeftShift)) {
 			if (enable == true) {
 				enable = false;
 			} else {

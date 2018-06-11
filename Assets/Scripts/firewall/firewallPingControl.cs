@@ -26,16 +26,7 @@ public class firewallPingControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		/*
-		if (firewallRenderer.isVisible && prompted == false) {
-			StartCoroutine ("promptPing");
-			prompted = true;
-		}
 
-		if (Input.GetKeyDown (KeyCode.E) && prompted == true) {
-			StartCoroutine ("pingResponse");
-		}
-		*/
 	}
 
 	public void promptPing(){
@@ -60,7 +51,7 @@ public class firewallPingControl : MonoBehaviour {
 	}
 
 	IEnumerator pingResponseCoroutine(){
-		string prompt = firewallDescription + "\n\nOptions: \nnmap ('n')\ns_client ('c')";
+		string prompt = firewallDescription + "\nOptions: \nPort Scan ('nmap')\nSSL Connection ('s_client')";
 		pingInfo.text = "";
 
 		foreach (char character in prompt) {

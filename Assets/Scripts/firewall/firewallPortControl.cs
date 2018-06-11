@@ -44,6 +44,7 @@ public class firewallPortControl : MonoBehaviour {
 		foreach (int openPort in openPorts) {
 			prompt += (openPort + "\topen\tUnknown\n");
 		}
+
 		StopAllCoroutines ();
 		StartCoroutine ("nmapPrint", prompt);
 	}

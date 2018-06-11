@@ -25,6 +25,6 @@ public class playerMovementV2 : MonoBehaviour {
 
 		mainCamRotY = mainCam.transform.eulerAngles.y;
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, mainCamRotY, transform.eulerAngles.z);
-		//print (mainCamRotY);
+		//print (mainCamRotY)
 	}
 }
