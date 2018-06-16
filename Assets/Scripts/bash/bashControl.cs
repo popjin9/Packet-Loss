@@ -16,11 +16,11 @@ public class bashControl : MonoBehaviour {
 	public Text bashText;
 	string consoleLogBuffer;
 	string startPrompt;
-	string command;
-	public Transform mainCameraTransform;
-	public Camera mainCamera;
+	public string command;
+	//public Transform mainCameraTransform;
+	//public Camera mainCamera;
 
-	RaycastHit raycastFirewall;
+	//RaycastHit raycastFirewall;
 	GameObject activeFirewall;
 
 	// Use this for initialization
@@ -33,12 +33,22 @@ public class bashControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		//Reset console
+		if (command != "") {
+			//Reset console
+			bash.text += "\n" + startPrompt;
+			consoleLogBuffer = bash.text;
+			command = "";
+		}
+
+		/*
 		//Searches for active firewalls
 		Vector3 cameraCenter = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, mainCamera.nearClipPlane));
 		
 		if (Physics.Raycast (cameraCenter, mainCameraTransform.forward, out raycastFirewall, 1000)) {
 			activeFirewall = raycastFirewall.transform.gameObject;
-		}
+		}*/
 
 		//Realigns text when text is over filled
 		if (bash.text.Length > 1000) {
@@ -62,7 +72,7 @@ public class bashControl : MonoBehaviour {
 	}
 
 	void executeCommand(string command){
-		//command = command.Replace (" ", "");
+		//NOTE: COMMANDS NOT LISTED HERE WILL BE EXECUTED FROM FIREWALL COMMANDS
 
 		if (command == "help") {
 			bash.text += "\nPCK bash, version 4.1.12(1)-indev (x84_64-pck-linux)" +
@@ -73,6 +83,9 @@ public class bashControl : MonoBehaviour {
 			"\ns_client [-p port]";
 			
 			//Debug.Log ("help printed!");
+		} else if (command == "ping") {
+		} else if (command == "nmap") {
+		} else if (command == "s_client") {
 		}
 
 		//Man descriptions
@@ -131,9 +144,5 @@ public class bashControl : MonoBehaviour {
 		else {
 			bash.text += "\n-bash: " + command + ": command not found";
 		}
-
-		//Reset console
-		bash.text += "\n" + startPrompt;
-		consoleLogBuffer = bash.text;
 	}
 }

@@ -28,6 +28,9 @@ public class firewallPortControl : MonoBehaviour {
 	public Renderer firewallRenderer;
 	private float charSpeed = 0.05f;
 
+	public InputField bash;
+	public InputField fullBash;
+
 	void Start () {
 		playerUnlockedPorts = player.GetComponent<playerPortControl> ().playerUnlockedPorts;
 		firewallSolid (true);
@@ -35,6 +38,23 @@ public class firewallPortControl : MonoBehaviour {
 
 	void Update () {
 		
+	}
+
+	public void commandNmap(bool bashFull){
+		//bashType 1 is full, 0 is small
+		if (bashFull == false) {
+			bash.text += "Starting Nmap 7.12 ( https://nmap.org )" +
+			"\nNmap Scan Report for localhost" +
+			"\nHost is up (0.0000020s latency)." +
+			"\nNot shown: 1112 closed ports" +
+			"\nPORT\tSTATE\tCONNECT\n";
+
+			foreach (int openPort in openPorts) {
+				bash.text += (openPort + "\t\topen\t\tUnknown\n");
+			}
+
+			bash.text += "\nNmap done: 1 ip address (1 host up) scanned in 0.11 seconds\n";
+		}
 	}
 
 	public void nmap(){
@@ -55,6 +75,21 @@ public class firewallPortControl : MonoBehaviour {
 		foreach (char character in prompt) {
 			pingInfo.text += character;
 			yield return new WaitForSeconds (charSpeed);
+		}
+	}
+
+	public void commandSclient(bool bashFull){
+		playerUnlockedPorts = player.GetComponent<playerPortControl> ().playerUnlockedPorts;
+		solid = checkPorts (openPorts, playerUnlockedPorts);
+		firewallSolid (solid);
+
+		//bashType 1 is full, 0 is small
+		if (bashFull == false) {
+			if (solid == false) {
+				bash.text += "\nConnection Successful (00003)\n\n";
+			} else if (solid == true) {
+				bash.text += "\nError: Unable to connect\n\n";
+			}
 		}
 	}
 

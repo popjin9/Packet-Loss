@@ -10,11 +10,16 @@ public class firewallCommands : MonoBehaviour {
 	public firewallPingControl firewallPingControl;
 	public firewallPortControl firewallPortControl;
 	private bool prompted;
+	public bool keyDisabled;
 
 	private Vector3 firewallDir;
 	private float playerFirewallAngle;
 	public float threshold = 30;
-	//int i = 0;
+
+	public GameObject bash;
+	public GameObject fullBash;
+	string command;
+
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +33,18 @@ public class firewallCommands : MonoBehaviour {
 		playerFirewallAngle = Vector3.Angle (firewallDir, camera.forward);
 
 		if (playerFirewallAngle < threshold){
-			//i += 1;
-			//Debug.Log (i);
+			//Check console commands
+			command = bash.GetComponent<bashControl> ().command;
+			if (command == "ping"){
+				firewallPingControl.pingResponse ();
+				firewallPingControl.commandPing (false);
+			} else if (command == "nmap"){
+				firewallPortControl.nmap ();
+				firewallPortControl.commandNmap (false);
+			} else if (command == "s_client"){
+				firewallPortControl.s_client ();
+				firewallPortControl.commandSclient (false);
+			}
 
 			//Ping Control
 			if (prompted == false) {
@@ -37,17 +52,11 @@ public class firewallCommands : MonoBehaviour {
 				prompted = true;
 			}
 
-			if (Input.GetKeyDown (KeyCode.E) && prompted == true) {
+			if (Input.GetKeyDown (KeyCode.E) && prompted == true && keyDisabled == false) {//Ping
 				firewallPingControl.pingResponse ();
-			}
-
-			//Portscan
-			if (Input.GetKeyDown (KeyCode.N)) {
+			} else if (Input.GetKeyDown (KeyCode.N) && keyDisabled == false) {//Portscan
 				firewallPortControl.nmap ();
-			}
-
-			//SSH Connect
-			if (Input.GetKeyDown (KeyCode.C)) {
+			} else if (Input.GetKeyDown (KeyCode.C) && keyDisabled == false) {//SSL Connect
 				firewallPortControl.s_client ();
 			}
 

@@ -27,10 +27,17 @@ public class firewallMaterialChange : MonoBehaviour {
 	public GameObject[] firewallInnerBlocks;
 	public GameObject[] firewallOuterBlocks;
 
+	public ParticleSystem firewallParticle;
+	public Color particleBlue;
+	public Color particleRed;
+
 	// Use this for initialization
 	void Start () {
 		bool block = false;
 		bool disabled = false;
+
+		particleBlue = new Color (0, 86, 255, 255);
+		particleRed = new Color (0, 86, 255, 255);
 	}
 	
 	// Update is called once per frame
@@ -51,6 +58,12 @@ public class firewallMaterialChange : MonoBehaviour {
 		foreach(GameObject firewall in firewallArray){
 			firewallRenderer = firewall.GetComponent<Renderer>();
 			firewallRenderer.material = firewallMaterial;
+		}
+
+		if (firewallMaterial == firewallInnerBlue || firewallMaterial == firewallOuterBlue) {
+			firewallParticle.MainModule.startColor = particleBlue;
+		} else if (firewallMaterial == firewallInnerBlue || firewallMaterial == firewallOuterBlue) {
+			firewallParticle.MainModule.startColor = particleRed;
 		}
 	}
 

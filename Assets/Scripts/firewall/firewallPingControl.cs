@@ -19,6 +19,8 @@ public class firewallPingControl : MonoBehaviour {
 	public string firewallDescription;
 	//private bool prompted;
 
+	public InputField bash;
+	public InputField fullBash;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,18 @@ public class firewallPingControl : MonoBehaviour {
 		StopAllCoroutines ();
 		StartCoroutine ("promptPingCoroutine");
 		//prompted = true;
+	}
+
+	public void commandPing(bool bashFull){
+		//bashType 1 is full, 0 is small
+		if (bashFull == false) {
+			bash.text += "\nPING localhost:22 (22) with \nOptions: 56(84) bytes of data:" +
+				"\n--- PING statistics ---" +
+				"\n 64 packets transmitted, 64 recieved, 0% packet loss, time 12ms" +
+				"\n\nOptions:" +
+				"\tPort Scan ('nmap')" +
+				"\tSSL Connection ('s_client')\n";
+		}
 	}
 
 	public void pingResponse(){
