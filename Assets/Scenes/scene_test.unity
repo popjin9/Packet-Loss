@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07924773, g: 0.07924773, b: 0.07924773, a: 1}
+  m_IndirectSpecularColor: {r: 0.07924773, g: 0.06608048, b: 0.041632574, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1075,7 +1075,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 32
     m_FontStyle: 1
     m_BestFit: 0
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 980565416}
   distanceFromTarget: 12
-  sensitivity: 5
+  sensitivity: 3
 --- !u!114 &256816669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: c74fedd7ce8f9f246ab2d68e28baf908, type: 2}
+  profile: {fileID: 0}
 --- !u!1 &268412190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,7 +2241,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -2601,34 +2601,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1672259154}
   m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &454609837
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 454609838}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &454609838
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 454609837}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.316, y: 2.38, z: 18.744}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501250491
 GameObject:
@@ -7008,7 +6980,7 @@ MonoBehaviour:
   player: {fileID: 980565411}
   playerUnlockedPorts: 
   self: {fileID: 636165270}
-  portNum: 8080
+  portNum: 22
 --- !u!1 &667415204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7783,7 +7755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirInfo: {fileID: 815290269}
   dirRenderer: {fileID: 269160461}
-  areaInfo: Data Storage Module
+  areaInfo: 
   camera: {fileID: 256816666}
   threshold: 30
 --- !u!114 &815290269
@@ -7806,7 +7778,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
@@ -8343,7 +8315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96419732170961489108b06393bbf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 800
+  moveSpeed: 1000
 --- !u!65 &980565413
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8382,7 +8354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5abce2692ef7849800b5383310b5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUnlockedPorts: 00000000
+  playerUnlockedPorts: 
 --- !u!4 &980565416 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 76c1849a67cafb044ba200d514a32a4c, type: 3}
@@ -9326,88 +9298,11 @@ MonoBehaviour:
   firewallOuterRed: {fileID: 2100000, guid: d80e16418ca4ad6479d4a4af44809a8e, type: 2}
   firewallBlack: {fileID: 2100000, guid: cad8cffeb3edd6346830df09c45489dc, type: 2}
   firewallRenderer: {fileID: 180184867}
-  firewallInnerBlocks:
-  - {fileID: 294617370}
-  - {fileID: 1262266867}
-  - {fileID: 1557348226}
-  - {fileID: 120202507}
-  - {fileID: 28010582}
-  - {fileID: 869565854}
-  - {fileID: 2145683652}
-  - {fileID: 886463010}
-  - {fileID: 2054755972}
-  - {fileID: 1024343640}
-  - {fileID: 1918313937}
-  - {fileID: 1362360907}
-  - {fileID: 1062150130}
-  - {fileID: 193500112}
-  - {fileID: 282489406}
-  - {fileID: 1427595440}
-  - {fileID: 13014701}
-  - {fileID: 49489602}
-  - {fileID: 1239518368}
-  - {fileID: 1867995751}
-  - {fileID: 1997453110}
-  - {fileID: 764205732}
-  - {fileID: 1565486070}
-  - {fileID: 357671426}
-  - {fileID: 521709587}
-  - {fileID: 880314722}
-  - {fileID: 150476243}
-  - {fileID: 445778488}
-  - {fileID: 1420819602}
-  - {fileID: 510937375}
-  - {fileID: 1117391965}
-  - {fileID: 1041108912}
-  - {fileID: 447350628}
-  - {fileID: 818778094}
-  - {fileID: 193916096}
-  - {fileID: 1649990410}
-  - {fileID: 274154320}
-  - {fileID: 1793733189}
-  - {fileID: 886815893}
-  - {fileID: 1946210215}
-  firewallOuterBlocks:
-  - {fileID: 526164851}
-  - {fileID: 1246922668}
-  - {fileID: 178865748}
-  - {fileID: 1211392103}
-  - {fileID: 371752563}
-  - {fileID: 1247890262}
-  - {fileID: 740149333}
-  - {fileID: 1811330719}
-  - {fileID: 568310096}
-  - {fileID: 293534876}
-  - {fileID: 1536399355}
-  - {fileID: 1923553420}
-  - {fileID: 400883381}
-  - {fileID: 1660882}
-  - {fileID: 1782080703}
-  - {fileID: 1928522391}
-  - {fileID: 146008887}
-  - {fileID: 1654725967}
-  - {fileID: 667415204}
-  - {fileID: 1621312285}
-  - {fileID: 560558638}
-  - {fileID: 1302397003}
-  - {fileID: 1402115619}
-  - {fileID: 821964464}
-  - {fileID: 224149278}
-  - {fileID: 501250491}
-  - {fileID: 1430702381}
-  - {fileID: 669208474}
-  - {fileID: 795339120}
-  - {fileID: 550306922}
-  - {fileID: 268412190}
-  - {fileID: 61962169}
-  - {fileID: 310621391}
-  - {fileID: 795876774}
-  - {fileID: 738465985}
-  - {fileID: 523358804}
-  - {fileID: 1394461285}
-  - {fileID: 2093999872}
-  - {fileID: 1325379388}
-  - {fileID: 1197206621}
+  firewallInnerBlocks: []
+  firewallOuterBlocks: []
+  firewallParticle: {fileID: 574828996}
+  particleBlue: {r: 0, g: 0, b: 0, a: 0}
+  particleRed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!95 &1207005730
 Animator:
   serializedVersion: 3
@@ -9438,10 +9333,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 980565411}
-  playerUnlockedPorts: 901f0000
-  openPorts: 901f0000
+  playerUnlockedPorts: 
+  openPorts: 
   matchedPorts: 
-  solid: 1
+  solid: 0
   firewallCollider: {fileID: 1207005732}
   firewallMaterialChange: {fileID: 1207005729}
   pingInfo: {fileID: 218137432}
@@ -9491,7 +9386,7 @@ MonoBehaviour:
   camera: {fileID: 256816666}
   firewallPingControl: {fileID: 1207005733}
   firewallPortControl: {fileID: 1207005731}
-  keyDisabled: 1
+  keyDisabled: 0
   threshold: 30
   bash: {fileID: 1279201795}
   fullBash: {fileID: 1168039211}
@@ -12575,7 +12470,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
@@ -12607,9 +12502,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portInfo: {fileID: 2039994778}
   moduleRenderer: {fileID: 636165271}
-  protocolInfo: 'Port 22: SSL Connection Protocol'
+  protocolInfo: 
   camera: {fileID: 256816666}
-  threshold: 30
+  threshold: 10
 --- !u!1 &2054755972
 GameObject:
   m_ObjectHideFlags: 0

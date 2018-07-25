@@ -60,10 +60,12 @@ public class firewallMaterialChange : MonoBehaviour {
 			firewallRenderer.material = firewallMaterial;
 		}
 
+		var particleMain = firewallParticle.main;
+
 		if (firewallMaterial == firewallInnerBlue || firewallMaterial == firewallOuterBlue) {
-			firewallParticle.MainModule.startColor = particleBlue;
+			particleMain.startColor = particleBlue;
 		} else if (firewallMaterial == firewallInnerBlue || firewallMaterial == firewallOuterBlue) {
-			firewallParticle.MainModule.startColor = particleRed;
+			particleMain.startColor = particleRed;
 		}
 	}
 
