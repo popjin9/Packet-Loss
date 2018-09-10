@@ -62,6 +62,9 @@ public class bashControl : MonoBehaviour {
 		}
 		bash.MoveTextEnd (false);
 
+		//Remove tilde keys
+		bash.text = bash.text.Replace ("`", "");
+
 		if (Input.GetKeyDown (KeyCode.Return)) {
 			command = bash.text.Replace (consoleLogBuffer, "");
 			executeCommand (command);
@@ -74,7 +77,20 @@ public class bashControl : MonoBehaviour {
 	void executeCommand(string command){
 		//NOTE: COMMANDS NOT LISTED HERE WILL BE EXECUTED FROM FIREWALL COMMANDS
 
-		if (command == "help") {
+		if (command == "boot.exe") {
+			bash.text += "\n" + "\nInitialising..." +
+				"\nPCK bash, version 4.1.12(1)-indev (x84_64-pck-linux)" +
+				"\nCore Module Self Check... Complete!" +
+				"\nNetwork Module Self Check... Complete!" +
+				"\nMovement Module Self Check... Complete!" +
+				"\nCommand & Control Module Self Check... Failed!" +
+				"\nMemory Self Check... Failed!" +
+				"\n" +
+				"\n40% Core Integrity. Server Connections Failed." +
+				"\nNEW OBJECTIVE: LOAD BACKUP MODULE";
+		}
+
+		else if (command == "help") {
 			bash.text += "\nPCK bash, version 4.1.12(1)-indev (x84_64-pck-linux)" +
 			"\nUse man [command] to find out more about each command" +
 			"\nhelp" +
@@ -90,7 +106,7 @@ public class bashControl : MonoBehaviour {
 
 		//Man descriptions
 		else if (command == "man help") {
-			bash.text += "\nThere is no way you don't know what help does.";
+			bash.text += "\nGood joke.";
 		} else if (command == "man man") {
 			bash.text += 
 			"\nNAME: man - an interface to the on-line reference manuals" +
@@ -142,7 +158,7 @@ public class bashControl : MonoBehaviour {
 
 		//If it doesn't match any commands
 		else {
-			bash.text += "\n-bash: " + command + ": command not found";
+			bash.text += "\n'" + command + "' is not recognised as an internal or external command, operatable program or batch file.";
 		}
 	}
 }

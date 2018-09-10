@@ -12,7 +12,7 @@ public class internalDirText : MonoBehaviour {
 
 	public string areaInfo;
 
-	public Transform camera;
+	public Transform mainCamera;
 
 	private Vector3 moduleDir;
 	private float playerModuleAngle;
@@ -27,8 +27,8 @@ public class internalDirText : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		moduleDir = transform.position - camera.position;
-		playerModuleAngle = Vector3.Angle (moduleDir, camera.forward);
+		moduleDir = transform.position - mainCamera.position;
+		playerModuleAngle = Vector3.Angle (moduleDir, mainCamera.forward);
 
 		if (playerModuleAngle < threshold){
 			if (prompted == false) {

@@ -10,6 +10,7 @@ public class bashFullEnableDisable : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		enable = false;
+		bash.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -17,14 +18,10 @@ public class bashFullEnableDisable : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.BackQuote) && Input.GetKey (KeyCode.LeftShift)) {
 			if (enable == true) {
 				enable = false;
+				bash.SetActive (false);
 			} else {
 				enable = true;
-			}
-
-			if (enable == true) {
 				bash.SetActive (true);
-			} else {
-				bash.SetActive (false);
 			}
 		}
 	}
