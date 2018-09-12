@@ -55,7 +55,7 @@ public class firewallPingControl : MonoBehaviour {
 	}
 
 	IEnumerator promptPingCoroutine(){
-		string prompt = "'E' to ping";
+		string prompt = "Use 'help' or 'ping' for help";
 		pingInfo.text = "";
 
 		foreach(char character in prompt){

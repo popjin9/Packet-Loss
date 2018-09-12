@@ -53,11 +53,11 @@ public class firewallCommands : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && prompted == true && keyDisabled == false) {//Ping
-				firewallPingControl.pingResponse ();
+				//firewallPingControl.pingResponse ();
 			} else if (Input.GetKeyDown (KeyCode.N) && keyDisabled == false) {//Portscan
-				firewallPortControl.nmap ();
+				//firewallPortControl.nmap ();
 			} else if (Input.GetKeyDown (KeyCode.C) && keyDisabled == false) {//SSL Connect
-				firewallPortControl.s_client ();
+				//firewallPortControl.s_client ();
 			}
 
 

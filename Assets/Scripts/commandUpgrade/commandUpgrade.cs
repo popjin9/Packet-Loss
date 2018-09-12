@@ -9,6 +9,7 @@ public class commandUpgrade : MonoBehaviour {
 	public List<string> playerUnlockedCommands;
 
 	public GameObject self;
+	public Renderer selfRenderer;
 
 	public string command;
 
@@ -22,8 +23,10 @@ public class commandUpgrade : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter(Collider colliderPlayer){
+	void OnTriggerEnter(Collider other){
 		//playerUnlockedCommands.Add (command);
-		Destroy (self, 0.1f);
+		//Destroy (self, 0.1f);
+		selfRenderer.enabled = false;
+		Debug.Log("Hello", gameObject);
 	}
 }
