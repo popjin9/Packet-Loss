@@ -9,6 +9,7 @@ public class internalDirText : MonoBehaviour {
 
 	public Text dirInfo;
 	public Renderer dirRenderer;
+	public Collider dirCollider;
 
 	public string areaInfo;
 
@@ -17,12 +18,13 @@ public class internalDirText : MonoBehaviour {
 	private Vector3 moduleDir;
 	private float playerModuleAngle;
 	public float threshold = 30;
+	public bool accessDenied = false;
 
 	private bool prompted = false;
 
 	// Use this for initialization
 	void Start () {
-
+		dirCollider.enabled = accessDenied;
 	}
 
 	// Update is called once per frame
